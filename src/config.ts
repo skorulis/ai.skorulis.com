@@ -1,5 +1,5 @@
 export const SITE = {
-  website: "https://skorulis.github.io", // replace this with your deployed domain if different
+  website: "https://skorulis.github.io/ai.skorulis.com/", // GitHub Pages project URL
   author: "Alex Skorulis",
   profile: "https://github.com/skorulis",
   desc: "Notes, experiments, and projects from my journey learning AI.",
