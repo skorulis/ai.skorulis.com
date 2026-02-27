@@ -1,7 +1,7 @@
 ---
 title: "I just got made redundant"
 description: "How I decided to turn an unexpected redundancy into a chance to dive deep into AI."
-pubDate: 2026-02-27
+pubDatetime: 2026-02-27T00:00:00.000Z
 tags:
   - meta
   - career

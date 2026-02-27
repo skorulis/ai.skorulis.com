@@ -1,28 +1,13 @@
 {
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist", "public/pagefind"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["./src/*"]
     },
-    "jsx": "preserve",
-    "jsxImportSource": "react",
-    "allowJs": true,
-    "strict": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "target": "ESNext",
-    "types": [
-      "astro/client"
-    ]
-  },
-  "include": [
-    "src",
-    "astro.config.*",
-    "env.d.ts"
-  ]
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
 }

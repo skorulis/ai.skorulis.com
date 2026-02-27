@@ -1,104 +1,121 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Socials from "@/components/Socials.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import Card from "@/components/Card.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import IconRss from "@/assets/icons/IconRss.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import { SITE } from "@/config";
+import { SOCIALS } from "@/constants";
 
-const posts = await getCollection("posts");
-const sorted = posts.sort(
-  (a, b) =>
-    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
-);
+const posts = await getCollection("blog");
+
+const sortedPosts = getSortedPosts(posts);
+const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 ---
 
-<Layout title="Learning AI – Blog">
-  <main class="page">
-    <header class="hero">
-      <h1>Learning AI</h1>
-      <p class="tagline">
-        My journey learning AI, one experiment and note at a time.
-      </p>
-    </header>
+<Layout>
+  <Header />
+  <main id="main-content" data-layout="index" class="app-layout">
+    <section id="hero" class:list={["pt-8 pb-6", "border-b border-border"]}>
+      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
+        Mingalaba
+      </h1>
+      <a
+        target="_blank"
+        href="/rss.xml"
+        class="inline-block"
+        aria-label="rss feed"
+        title="RSS Feed"
+      >
+        <IconRss
+          width={20}
+          height={20}
+          class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
+        />
+        <span class="sr-only">RSS Feed</span>
+      </a>
 
-    <section class="posts">
-      {sorted.map((post) => (
-        <article class="post-card">
-          <a href={`/posts/${post.slug}/`}>
-            <h2>{post.data.title}</h2>
-            <p class="meta">
-              <time datetime={new Date(post.data.pubDate).toISOString()}>
-                {new Date(post.data.pubDate).toLocaleDateString()}
-              </time>
-              {post.data.tags && post.data.tags.length > 0 && (
-                <>
-                  {" · "}
-                  <span>{post.data.tags.join(", ")}</span>
-                </>
-              )}
-            </p>
-            {post.data.description && <p>{post.data.description}</p>}
-          </a>
-        </article>
-      ))}
+      <p>
+        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
+        blog theme. This theme follows best practices and provides accessibility
+        out of the box. Light and dark mode are supported by default. Moreover,
+        additional color schemes can also be configured.
+      </p>
+      <p class="mt-2">
+        Read the blog posts or check
+        <LinkButton
+          class="underline decoration-dashed underline-offset-4 hover:text-accent"
+          href="https://github.com/satnaing/astro-paper#readme"
+        >
+          README
+        </LinkButton> for more info.
+      </p>
+      {
+        // only display if at least one social link is enabled
+        SOCIALS.length > 0 && (
+          <div class="mt-4 flex max-sm:flex-col sm:items-center">
+            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
+            <Socials />
+          </div>
+        )
+      }
     </section>
+
+    {
+      featuredPosts.length > 0 && (
+        <section
+          id="featured"
+          class:list={[
+            "pt-12 pb-6",
+            { "border-b border-border": recentPosts.length > 0 },
+          ]}
+        >
+          <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
+          <ul>
+            {featuredPosts.map(data => (
+              <Card variant="h3" {...data} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts" class="pt-12 pb-6">
+          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
+          <ul>
+            {recentPosts.map(
+              (data, index) =>
+                index < SITE.postPerIndex && <Card variant="h3" {...data} />
+            )}
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="my-8 text-center">
+      <LinkButton href="/posts/">
+        All Posts
+        <IconArrowRight class="inline-block rtl:-rotate-180" />
+      </LinkButton>
+    </div>
   </main>
+  <Footer />
 </Layout>
 
-<style>
-  .page {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem 4rem;
-  }
-
-  .hero {
-    margin-bottom: 2.5rem;
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .tagline {
-    color: #666;
-    max-width: 32rem;
-  }
-
-  .posts {
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-  }
-
-  .post-card a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    padding: 1.25rem 1.5rem;
-    border-radius: 0.9rem;
-    border: 1px solid #e2e2e2;
-    background: #fff;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-    transition:
-      box-shadow 0.2s ease,
-      transform 0.2s ease,
-      border-color 0.2s ease;
-  }
-
-  .post-card a:hover {
-    transform: translateY(-2px);
-    border-color: #6366f1;
-    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
-  }
-
-  .post-card h2 {
-    font-size: 1.35rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .meta {
-    font-size: 0.85rem;
-    color: #777;
-    margin-bottom: 0.55rem;
-  }
-</style>
-
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
+      ?.dataset?.layout;
+    if (indexLayout) {
+      sessionStorage.setItem("backUrl", "/");
+    }
+  });
+</script>
