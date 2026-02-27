@@ -2,12 +2,16 @@
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("posts");
-const post = posts.find((p) => p.slug === Astro.params.slug);
-
-if (!post) {
-  throw new Error(`Post not found for slug: ${Astro.params.slug}`);
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
 }
+
+const { post } = Astro.props;
+const { Content } = await post.render();
 ---
 
 <Layout title={post.data.title}>
@@ -16,8 +20,8 @@ if (!post) {
       <header class="post-header">
         <h1>{post.data.title}</h1>
         <p class="meta">
-          <time datetime={post.data.pubDate.toISOString()}>
-            {post.data.pubDate.toLocaleDateString()}
+          <time datetime={new Date(post.data.pubDate).toISOString()}>
+            {new Date(post.data.pubDate).toLocaleDateString()}
           </time>
           {post.data.tags && post.data.tags.length > 0 && (
             <>
@@ -30,7 +34,7 @@ if (!post) {
       </header>
 
       <section class="content">
-        <post.Content />
+        <Content />
       </section>
     </article>
   </main>
