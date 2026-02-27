@@ -3,7 +3,7 @@ export const SITE = {
   author: "Alex Skorulis",
   profile: "https://github.com/skorulis",
   desc: "Notes, experiments, and projects from my journey learning AI.",
-  title: "Learning AI",
+  title: "AI.skorulis.com",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
