@@ -1,0 +1,86 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+const post = posts.find((p) => p.slug === Astro.params.slug);
+
+if (!post) {
+  throw new Error(`Post not found for slug: ${Astro.params.slug}`);
+}
+---
+
+<Layout title={post.data.title}>
+  <main class="page">
+    <article>
+      <header class="post-header">
+        <h1>{post.data.title}</h1>
+        <p class="meta">
+          <time datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString()}
+          </time>
+          {post.data.tags && post.data.tags.length > 0 && (
+            <>
+              {" · "}
+              <span>{post.data.tags.join(", ")}</span>
+            </>
+          )}
+        </p>
+        {post.data.description && <p class="description">{post.data.description}</p>}
+      </header>
+
+      <section class="content">
+        <post.Content />
+      </section>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .post-header h1 {
+    font-size: 2.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .meta {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 0.75rem;
+  }
+
+  .description {
+    color: #4b5563;
+    margin-bottom: 1.75rem;
+  }
+
+  .content {
+    line-height: 1.7;
+    font-size: 1.02rem;
+  }
+
+  .content :global(code) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9em;
+    background: #111827;
+    color: #e5e7eb;
+    padding: 0.15rem 0.35rem;
+    border-radius: 0.3rem;
+  }
+
+  .content :global(pre) {
+    background: #020617;
+    color: #e5e7eb;
+    padding: 1.1rem 1.2rem;
+    border-radius: 0.8rem;
+    overflow-x: auto;
+    font-size: 0.9rem;
+  }
+</style>
+
