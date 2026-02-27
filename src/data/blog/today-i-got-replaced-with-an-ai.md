@@ -17,4 +17,6 @@ While I was at Block, I had access to pretty much every AI tool under the sun. N
 
 I’ll be honest: I’m still an AI skeptic. I used it as much as I could at work partly because there was pressure to, but also because it felt irresponsible not to try. Even so, I often preferred writing code manually. I like the craft of it. The idea of leaning on AI first still doesn’t come naturally.
 
+Throughout my career as an iOS developer I’ve always focused on productivity—that meant getting deep in the platform and in Swift. That’s still important. But AI is now gaining knowledge faster than I am. To keep increasing my productivity I need to become an expert in AI tools, not just in the language and the frameworks. The leverage has shifted.
+
 That’s partly why I’m starting this blog. I want to work through the ups and downs of working with AI in the open—what helps, what gets in the way, and how to move toward a more AI-first mentality without losing what I care about in how I build software. If that’s a journey you’re on too, you’re welcome to follow along.
