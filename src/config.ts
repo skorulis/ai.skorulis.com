@@ -4,7 +4,7 @@ export const SITE = {
   profile: "https://github.com/skorulis",
   desc: "Notes, experiments, and projects from my journey learning AI.",
   title: "AI.skorulis.com",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "images/replaced-by-ai.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 4,

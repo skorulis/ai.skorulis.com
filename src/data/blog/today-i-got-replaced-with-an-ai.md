@@ -7,7 +7,10 @@ tags:
   - career
   - learning-path
 draft: false
+ogImage: "images/replaced-by-ai.jpg"
 ---
+
+![Getting replaced with an AI](/images/replaced-by-ai.jpg)
 
 Today I got replaced with an AI. Well—not quite. But I was part of the roughly 40% of people laid off from Block, and the reasoning from the top was clear: they believe AI will deliver such a boost to productivity that the extra headcount simply isn’t needed anymore. So in spirit, if not in letter, the message was hard to miss.
 
