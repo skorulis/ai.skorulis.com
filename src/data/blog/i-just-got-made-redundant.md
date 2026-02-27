@@ -1,6 +1,6 @@
 ---
-title: "I just got made redundant"
-description: "How I decided to turn an unexpected redundancy into a chance to dive deep into AI."
+title: "Today I got replaced with an AI"
+description: "Today I got replaced with an AI. "
 pubDatetime: 2026-02-27T00:00:00.000Z
 tags:
   - meta
