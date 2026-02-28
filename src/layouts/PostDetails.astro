@@ -56,6 +56,14 @@ const ogImage = ogImageUrl
   ? new URL(ogImageUrl, Astro.url.origin).href
   : undefined;
 
+// Hero image in article body: same as ogImage when it's a local asset or path
+const heroImageSrc =
+  typeof initOgImage === "string"
+    ? initOgImage.startsWith("http")
+      ? initOgImage
+      : `/${initOgImage}`
+    : initOgImage?.src;
+
 const layoutProps = {
   title: `${title} | ${SITE.title}`,
   author,
@@ -111,6 +119,13 @@ const nextPost =
       id="article"
       class="app-prose mt-8 w-full max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"
     >
+      {heroImageSrc && (
+        <img
+          src={heroImageSrc}
+          alt={title}
+          class="mb-6 w-full rounded-lg"
+        />
+      )}
       <Content />
     </article>
 

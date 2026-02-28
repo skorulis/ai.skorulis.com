@@ -7,6 +7,7 @@ tags:
   - cursor
   - learning-path
 draft: false
+ogImage: "images/choosing-cursor.jpg"
 ---
 
 With so many AI coding assistants out there, picking one to commit to felt like a big decision. I didn’t want to hop between tools every time I hit a token limit. I've used a few tools at work, I landed on **Cursor** as my first paid AI development tool. Here’s why.
