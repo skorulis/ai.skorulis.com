@@ -10,8 +10,6 @@ draft: false
 ogImage: "images/replaced-by-ai.jpg"
 ---
 
-![Getting replaced with an AI](/images/replaced-by-ai.jpg)
-
 Today I got replaced with an AI. Well, not quite. But I was part of the roughly 40% of people laid off from Block, and the reasoning from the top was clear: they believe AI will deliver such a boost to productivity that the extra headcount simply isn’t needed anymore. So in spirit, if not in letter, the message was hard to miss.
 
 I don’t agree with that assessment. I think it’s optimistic in the short term and glosses over a lot of what actually makes software work. That said, there’s a kernel of truth in there. AI isn’t going away, and for people in software, it’s increasingly a case of keep up or get left behind. Denying that doesn’t help.
