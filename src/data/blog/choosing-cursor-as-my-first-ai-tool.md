@@ -10,7 +10,7 @@ draft: false
 ogImage: "images/choosing-cursor.jpg"
 ---
 
-With so many AI coding assistants out there, picking one to commit to felt like a big decision. I didn’t want to hop between tools every time I hit a token limit. I've used a few tools at work. I landed on **Cursor** as my first paid AI development tool. Here’s why.
+With so many AI coding assistants out there, picking one to commit to felt like a big decision. I didn’t want to hop between tools every time I hit a token limit. I've used a few tools at work. I landed on **Cursor Pro** as my first paid AI development tool. Here’s why.
 
 **Free tools aren’t enough for sustained work.** The limits on free tiers—requests per day, context size, or model access—are fine for quick experiments. But when you’re actually building something, hitting a cap mid-session and having to switch to another tool or wait until tomorrow is real friction. I wanted something I could rely on as my main environment, not a fallback when the free quota runs out.
 
