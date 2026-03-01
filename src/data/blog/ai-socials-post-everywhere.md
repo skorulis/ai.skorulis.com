@@ -1,5 +1,5 @@
 ---
-title: "Getting AI to to my social posts"
+title: "Getting AI to do my social posts"
 description: "AI-socials: an AI-driven system that posts my work across multiple channels so I can skip the part of the internet I like the least."
 pubDatetime: 2026-03-01T00:00:00.000Z
 tags:
