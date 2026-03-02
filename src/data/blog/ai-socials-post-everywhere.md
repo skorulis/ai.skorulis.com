@@ -16,7 +16,7 @@ Sharing my work on social channels is not my idea of a good time. It's useful, p
 
 The catch: getting *onto* those platforms in the first place.
 
-**Blue Sky** and **Mastodon** were very painless, I just had to get some API keys.
+**Blue Sky** and **Mastodon** both had APIs hooked up to crosspost, which worked well for text but when I tried to post a video the system only accepted GIFs. I ended up adding specific handling for Bluesky and probably need to do the same for mastadon.
 
 **Twitter** moved their API behind a paywall. Fair enough from their side, but I'm not paying to post. I'd rather not use the platform than subscribe just to automate a few updates. So Twitter isn't in the mix.
 
