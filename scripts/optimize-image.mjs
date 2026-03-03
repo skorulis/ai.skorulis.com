@@ -24,7 +24,8 @@ async function optimize(path) {
   const meta = await pipeline.metadata();
   const needResize =
     (meta.width > MAX_WIDTH || meta.height > MAX_HEIGHT) &&
-    (meta.width && meta.height);
+    meta.width &&
+    meta.height;
 
   if (needResize) {
     pipeline.resize(MAX_WIDTH, MAX_HEIGHT, {
@@ -54,7 +55,7 @@ async function optimize(path) {
         const webpPath = abs.replace(ext, ".webp");
         await pipeline.webp({ quality: WEBP_QUALITY }).toFile(webpPath);
         console.warn(
-          `Converted ${path} to .webp (original format not optimized)`
+          `Converted ${path} to .webp (original format not optimized)`,
         );
         return;
       }
@@ -63,7 +64,7 @@ async function optimize(path) {
     if (after >= before) {
       unlinkSync(tmpPath);
       console.log(
-        `${path}: ${(before / 1024).toFixed(1)} KB (skipped — already optimal or would be larger)`
+        `${path}: ${(before / 1024).toFixed(1)} KB (skipped — already optimal or would be larger)`,
       );
       return;
     }
@@ -71,7 +72,7 @@ async function optimize(path) {
     const saved = before - after;
     const pct = ((saved / before) * 100).toFixed(1);
     console.log(
-      `${path}: ${(before / 1024).toFixed(1)} KB → ${(after / 1024).toFixed(1)} KB (${pct}% smaller)`
+      `${path}: ${(before / 1024).toFixed(1)} KB → ${(after / 1024).toFixed(1)} KB (${pct}% smaller)`,
     );
   } catch (e) {
     try {

@@ -14,7 +14,7 @@ Sharing my work on social channels is not my idea of a good time. It's useful, p
 
 **[ai-socials](https://github.com/skorulis/ai-socials)** provides some basic hooks to allow posting across multiple channels. Then I can just point an AI agent at that project and tell it to make a post, and the system handles formatting and publishing. Having my own tool removes a lot of the friction and actually encourages me to put things out there instead of letting them sit in a draft folder forever.
 
-The catch: getting *onto* those platforms in the first place.
+The catch: getting _onto_ those platforms in the first place.
 
 **Blue Sky** and **Mastodon** both had APIs hooked up to crosspost, which worked well for text but when I tried to post a video the system only accepted GIFs. I ended up adding specific handling for Bluesky and probably need to do the same for mastadon.
 

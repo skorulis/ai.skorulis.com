@@ -16,6 +16,6 @@ With so many AI coding assistants out there, picking one to commit to felt like 
 
 **It matched what I was already doing at work.** I’d been using Cursor in my job before I left, so I knew how it behaved. I like being in an IDE even if I'm not writing the code. Cutting down my learning curve lets me focus on the results.
 
-**Setup is minimal.** I don’t want to configure plugins, API keys, or model endpoints before I can get going. With Cursor I open the app, open a project, and start prompting. 
+**Setup is minimal.** I don’t want to configure plugins, API keys, or model endpoints before I can get going. With Cursor I open the app, open a project, and start prompting.
 
 So for now, Cursor is my default. If I start finding limitations, I'll reassess, but for now I'm happy to be getting straight into it.
