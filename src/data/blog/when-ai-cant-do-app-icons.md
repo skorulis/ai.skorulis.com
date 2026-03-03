@@ -5,7 +5,7 @@ pubDatetime: 2026-03-03T00:00:00.000Z
 tags:
   - tools
   - images
-  - game-dev
+  - gamedev
 draft: false
 ogImage: "images/app-icon-generation-og.png"
 ---
