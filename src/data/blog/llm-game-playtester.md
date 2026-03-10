@@ -10,7 +10,7 @@ draft: false
 ogImage: "images/llm-game-playtester-og.png"
 ---
 
-I've been building a [mobile game centred on finding and collecting items](https://github.com/skorulis/ios-items). It's still very early, but I know one of the big challenges will be fine-tuning the pacing. I don't want to rely only on my own playthroughs or a handful of testers, so I set out to build an **LLM-backed playtester** that could run through the game and report back like a fresh player would.
+I've been building a [mobile game centred on finding and collecting items](https://github.com/skorulis/ios-items). It's still very early, but I know one of the big challenges will be fine-tuning the pacing. I don't want to rely only on my own playthroughs or a handful of testers, so I set out to build an **LLM-backed playtester** that could run through the game and report back like a fresh player would. This isn't a repeatable unit test system, this is about getting qualitative feedback.
 
 **Goal: play like a new user.** The system gets minimal explanation. The main instruction is to try to earn the achievements in the game. It doesn't get a design doc or a list of mechanics. It has to infer how things work from what it sees, the same way a new user would. That constraint is deliberate. If the game is confusing or repetitive, I want the AI to say so.
 
