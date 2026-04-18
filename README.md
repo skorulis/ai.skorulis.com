@@ -10,3 +10,5 @@ npm run dev
 ```
 
 Then visit `http://localhost:4321` in your browser.
+
+See https://github.com/skorulis/blog.skorulis.com/ for the general purpose blog
